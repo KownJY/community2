@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.koreait.community.board.BoardMapper">
+
+    <select id="selBoardList" resultType="BoardVO">
+        select A.iboard
+             , A.title
+             , A.iuser
+             , A.hits
+             , A.rdt
+             , B.nm as writernm
+             , B.profileimg
+        from t_board A
+                 left join t_user B
+                           on A.iuser = b.iuser
+        where A.isdel = 0
+          AND A.icategory = ${icategory}
+        order by A.iboard desc
+
+    </select>
+
+    <insert id="insBoard">
+        insert into t_board
+            (icategory, title, ctnt, iuser)
+        values (${icategory}, #{title}, #{ctnt}, ${iuser})
+    </insert>
+
+    <select id="selDetail" resultType="BoardVO">
+        SELECT A.iboard
+             , A.icategory
+             , A.title
+             , A.ctnt
+             , A.iuser
+             , A.hits
+             , A.rdt
+             , B.nm as writernm
+             , B.profileimg
+             , C.nm as categorynm
+        FROM t_board A
+                 LEFT JOIN t_user B
+                           ON A.iuser = B.iuser
+                 LEFT JOIN t_board_category C
+                           ON A.icategory = C.icategory
+        WHERE A.isdel = 0
+          AND iboard = ${iboard}
+
+    </select>
+
+    <update id="addHits">
+        UPDATE t_board
+        Set hits = hits + 1
+        where iboard = ${iboard}
+    </update>
+
+    <update id="updBoard">
+        update t_board
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="ctnt != null and ctnt != ''">
+                ctnt = #{ctnt},
+            </if>
+            <if test="lastip != null and lastip != ''">
+                lastip = #{lastip}
+            </if>
+            <if test="isdel == 1">-
+                isdel = 1
+            </if>
+        </set>
+
+        where iboard = ${iboard}
+
+
+            AND iuser = ${iuser}
+
+
+    </update>
+
+    <delete id="delBoard">
+        DELETE
+        FROM t_board
+        WHERE iboard = ${iboard}
+    </delete>
+</mapper>

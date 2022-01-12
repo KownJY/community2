@@ -1,0 +1,109 @@
+/** {*/
+/*    box-sizing: border-box;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*}*/
+
+/*html {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+/*body {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*#container {*/
+/*    height: 100%;*/
+/*}*/
+
+/*a {*/
+/*    text-decoration: none;*/
+/*    color: black;*/
+/*}*/
+
+/*header {*/
+/*    background-color: cadetblue;*/
+/*}*/
+
+/*.m-r-10 {margin-right: 10px;}*/
+/*.m-r-20 {margin-right: 10px;}*/
+/*.flex-container {*/
+/*    display: flex;*/
+/*}*/
+
+/*.gamssa{*/
+
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*footer {*/
+/*    bottom: 0;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.menu-selected { font-weight: bold; }*/
+/*.menu-selected a { color: rgba(85, 22, 161, 0.44); }*/
+
+/*.record:hover {*/
+/*    background-color: cadetblue;*/
+/*}*/
+
+/*table, th, td { border: 1px solid #4f4f4f; border-collapse: collapse; }*/
+/*th, td { padding: 7px; }*/
+
+/*.submenu-section{*/
+/*    display: grid;*/
+/*    grid-template-columns: 100px 1fr;*/
+
+/*}*/
+
+/*.submenu-section:first-child {background-color: #efefef;}*/
+
+@charset "utf-8";
+* { box-sizing: border-box; padding: 0; margin: 0; }
+a { text-decoration: none; color: #4d4d4d; }
+
+html, body { height: 100%; }
+header { background-color: #98f1fa; }
+footer { background-color: #4d4d4d; }
+ul { list-style: none; }
+
+
+table, th, td { border: 1px solid #4f4f4f; border-collapse: collapse; }
+th, td { padding: 7px; }
+
+.flex-align-center { align-items: center; }
+.flex-center { justify-content: center; align-items: center; }
+.flex-container { display: flex; height: 100%; width: 100%; }
+.flex-direction-column { flex-direction: column; }
+
+.font-color-white { color: #fff; }
+
+.h-50 { height: 50px; }
+.h-100 { height: 100px; }
+
+ .hidden {display: none;}
+
+
+.menu-selected { font-weight: bold; }
+.menu-selected a { color: #d8a3fc; }
+
+.m-r-10 { margin-right: 10px; }
+.m-r-20 { margin-right: 20px; }
+
+.p10 { padding: 10px; }
+.p-lr-10 { padding: 0 10px; }
+.p-lr-20 { padding: 0 20px; }
+
+#container { min-height: 100%; display: grid; grid-template-rows: 50px 1fr 30px; }
+
+.circular--img { display: inline-block; overflow: hidden; border-radius: 50%; border: 4px solid #ecf0f1; }
+.circular--img img { width: 100%; height: 100%; object-fit: cover; }
+.circular--size40 { width: 40px; height: 40px; }
+.circular--size200 { width: 200px; height: 200px; }
+.circular--size300 { width: 300px; height: 300px; }
+
+.pointer {cursor: pointer;}

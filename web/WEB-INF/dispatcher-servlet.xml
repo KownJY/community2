@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.koreait.community"></context:component-scan>
+
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <mvc:resources mapping="/res/**" location="/res/"/>
+    <mvc:resources mapping="/images/**" location="file:///D:/upload/images/"></mvc:resources>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+<!--        InternalResourceViewResolver 안에 세터메소드를 이용하여 값을 넣어주라??.-->
+<!--        스트링을 제외한 모든 값은 ref 로 적으래. ???-->
+        <property name="suffix" value=".jsp" />
+        <property name="order"  value="2"></property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"></property>
+        <property name="order" value="1"></property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/tiles.xml</value>
+            </list>
+        </property>
+        <property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory"></property>
+    </bean>
+</beans>
